@@ -1,0 +1,22 @@
+﻿@model ParkingSpotHoldModel
+
+@{
+    ViewData["Title"] = "CheckOut";
+}
+
+<h2 class="p-2">Check Out</h2>
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <form asp-controller="home" asp-action="CheckOutCalculation" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Enter Parking Id Number: </label>
+                    <input class="form-control" type="text" name="PsId" asp-for="PstId" />
+                </div>
+                <button class="btn btn-outline-danger" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

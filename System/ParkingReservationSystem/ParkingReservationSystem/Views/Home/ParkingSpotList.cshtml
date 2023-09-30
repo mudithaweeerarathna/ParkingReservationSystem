@@ -1,0 +1,38 @@
+﻿@model List<ParkingSpotModel>
+@{
+    ViewData["Title"] = "ParkingSpotList";
+}
+
+<h2 class="p-2">Parking Spot List</h2>
+<hr />
+
+<a asp-controller="home" asp-action="CreateParkingSpot">
+    <button class="btn btn-outline-primary bi bi-plus-circle" style="margin-left: 12px; margin-bottom: 10px;"> Add new Parking Spot</button>
+</a>
+
+<div class="container-fluid">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Parking Spot Number</th>
+                <th scope="col">Parking Spot Type</th>
+                <th scope="col">Availability</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var parkingSpot in Model)
+            {
+            <tr>
+                <td>@parkingSpot.ParkingSpotNumber</td>
+                <td>@parkingSpot.ParkingSpotType</td>
+                <td class=@(parkingSpot.Available ? "bg-success" : "bg-danger")>@(parkingSpot.Available ? "Available" : "Vehicle Parked")</td>
+                <td>
+                    <a asp-controller="home" asp-action="EditParkingSpot" asp-route-id="@parkingSpot.Id"><i class="bi bi-pen" style="margin-right: 10px;" data-toggle="tooltip" data-placement="top" title="edit"></i></a>
+                    <a asp-controller="home" asp-action="DeleteParkingSpot" asp-route-id="@parkingSpot.Id" method="post"><i class="bi bi-trash" style="margin-right: 10px;" data-toggle="tooltip" data-placement="top" title="delete"></i></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,47 @@
+﻿@model ParkingSpotHoldModel
+
+@{
+    ViewData["Title"] = "ReserveParkingSpot";
+}
+
+<h2 class="p-2 text-center bg-success p-4">Parking spot is successfully reserved</h2>
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <table class="table table-bordered">
+                <tr>
+                    <td class="col-1 fw-bold">Parking Spot Id: </td>
+                    <td class="col-1">@Model.PstId</td>
+                </tr>
+                <tr>
+                    <td class="col-1 fw-bold">Parking Date: </td>
+                    <td class="col-1">@Model.ParkedTime</td>
+                </tr>
+                <tr>
+                    <td class="col-1 fw-bold">Parking Time: </td>
+                    <td class="col-1">@Model.ParkedTime</td>
+                </tr>
+                <tr>
+                    <td class="col-1 fw-bold">Parking Spot Type: </td>
+                    <td class="col-1">@Model.ParkingSpotType</td>
+                </tr>
+                <tr>
+                    <td class="col-1 fw-bold">Parking Spot Number: </td>
+                    <td class="col-1">@Model.ParkingSpotNumber</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-6">
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into 
+                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release 
+                of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like 
+                Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+        </div>
+    </div>
+</div>

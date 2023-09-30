@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "GetParkingReservation";
+}
+
+<h2 class="p-2">Reserve Your Parking Space</h2>
+<hr />
+
+
+<div class="container-fluid" style="margin-top: 50px;">
+    <div class="row" style="height: 400px;">
+        <div class="col-sm-6">
+            <button class="btn btn-success p-5" style="width: 100%; height: 100%;" onclick="showParkTypeModal()">Reserve a parking spot</button>
+        </div>
+        <div class="col-sm-6" style="align-content: center;">
+            <a class="btn btn-danger p-5" style="width: 100%; height: 100%;"  asp-controller="home" asp-action="checkOut">Check Out</a>
+        </div>
+    </div>
+</div>
+
+<!-- Start Park Type Selection Modal -->
+<div class="modal" id="parkTypeModal" tabindex="-1" role="dialog" aria-labelledby="parkTypeModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="parkTypeModalTitle">Select Park Type</h5>
+                <button type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close" onclick="hideParkTypeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <a asp-controller="home" asp-action="reserveParkingSpot" asp-route-type="@ParkingSpotTypesEnum.Large" class="btn btn-outline-primary mb-4 p-4">Large Parking Spot [Lorries, Bus]</a>
+                <a asp-controller="home" asp-action="reserveParkingSpot" asp-route-type="@ParkingSpotTypesEnum.Medium" class="btn btn-outline-primary mb-4 p-4">Medium Parking Spot [Cars, Vans, Jeeps]</a>
+                <a asp-controller="home" asp-action="reserveParkingSpot" asp-route-type="@ParkingSpotTypesEnum.Small" class="btn btn-outline-primary mb-4 p-4">Small Parking Spot [MotorCycles, Scooters, ThreeWheelers]</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Park Type Selection Modal -->
+
+
+<script src="~/js/Home/GetParkingReservation.js"></script>

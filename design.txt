@@ -1,0 +1,17 @@
+--Product Requirements--
++ Needs to reserve a parking spot.
++ Needs to free the parking spot.
++ Needs to pay for the parking spot (Depending on the parking hours).
++ Types of vehicle (3 = compact, large, motorcycles).
++ Print receipt.
+
+--End Points--
++ ReserveParkingSpot()
++ FreeParkingSpot()
+
+--Database Schema--
++ ParkingSpots.
++ Reservation.
+
+
+--Parking Spot Registration--
