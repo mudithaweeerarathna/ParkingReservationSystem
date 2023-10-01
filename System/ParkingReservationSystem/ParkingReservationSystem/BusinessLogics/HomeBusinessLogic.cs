@@ -25,6 +25,7 @@ namespace ParkingReservationSystem.BusinessLogics
         {
             try
             {
+                parkingSpotModel.Active = true;
                 if (parkingSpotModel.Id > 0)
                 {
                     _homeDataAccess.SaveParkingSpot(2, parkingSpotModel);
@@ -46,9 +47,23 @@ namespace ParkingReservationSystem.BusinessLogics
             return _homeDataAccess.GetParkingSpots(1, -1, -1);
         }
 
+        public string GetLastParkingSpotNumber()
+        {
+            string lastParkingSpotNumber;
+            var getParkingSpot = GetLastParkingSpot();
+            int id = getParkingSpot == null ? 0 : getParkingSpot.Id;
+            lastParkingSpotNumber = _commonBusinessLogic.GetLastParkingSpotId(id);
+            return lastParkingSpotNumber;
+        }
+
+        public ParkingSpotModel GetLastParkingSpot()
+        {
+            return _homeDataAccess.GetParkingSpots(3, -1, -1)?.FirstOrDefault();
+        }
+
         public ParkingSpotModel GetParkingSpot(int id)
         {
-            return _homeDataAccess.GetParkingSpots(1, id, -1).FirstOrDefault();
+            return _homeDataAccess.GetParkingSpots(1, id, -1)?.FirstOrDefault();
         }
 
         public List<ParkingSpotModel> GetAllAvailableParkingSpots()
@@ -63,7 +78,7 @@ namespace ParkingReservationSystem.BusinessLogics
 
         public void DeleteParkingSpot(int id)
         {
-            _homeDataAccess.DeleteParkingSpot(1, id);
+            _homeDataAccess.DeleteParkingSpot(4, id);
         }
 
         public ParkingSpotHoldModel ReserveParkingSpot(ParkingSpotTypesEnum parkingSpotType)
@@ -85,7 +100,7 @@ namespace ParkingReservationSystem.BusinessLogics
         {
             try
             {
-                ParkingSpotModel parkingSpot = GetAllAvailableParkingSpotsBySpotId(parkingSpotType).FirstOrDefault();
+                ParkingSpotModel parkingSpot = GetAllAvailableParkingSpotsBySpotId(parkingSpotType)?.FirstOrDefault();
                 parkingSpotHold.HeaderId = parkingSpot.Id;
                 parkingSpotHold.ParkedTime = DateTime.Now;
                 parkingSpotHold.ParkingSpotNumber = parkingSpot.ParkingSpotNumber;
@@ -110,7 +125,8 @@ namespace ParkingReservationSystem.BusinessLogics
                 parkingSpotHold = GetParkingSpotHoldDetailsById(parkingSpotHoldModel.PstId).FirstOrDefault();
                 var parkingSpotType = GetParkingSpot(parkingSpotHold.HeaderId).ParkingSpotType;
                 parkingSpotHold.ReleasedTime = DateTime.Now;
-                parkingSpotHold.TotalAmount = (decimal) _commonBusinessLogic.CalculateParkingFees(parkingSpotHold.ParkedTime.Value, parkingSpotType);
+                parkingSpotHold.TotalAmount = (decimal) _commonBusinessLogic.CalculateParkingFees(parkingSpotHold.ParkedTime, parkingSpotType);
+                _homeDataAccess.ReserveParkingSpot(2, parkingSpotHold);
                 return parkingSpotHold;
             }
             catch (Exception ex)

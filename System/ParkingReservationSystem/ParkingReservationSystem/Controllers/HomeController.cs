@@ -24,6 +24,7 @@ namespace ParkingReservationSystem.Controllers
         [HttpGet]
         public ActionResult CreateParkingSpot()
         {
+            ViewBag.spotNumber = _homeBusinessLogic.GetLastParkingSpotNumber();
             return View();
         }
         

@@ -35,6 +35,7 @@ namespace ParkingReservationSystem.DataAccess
             sqlCommand.Parameters.Add("@ParkingSpotNumber", SqlDbType.VarChar).Value = parkingSpotModel.ParkingSpotNumber;
             sqlCommand.Parameters.Add("@ParkingSpotType", SqlDbType.Int).Value =  parkingSpotModel.ParkingSpotType;
             sqlCommand.Parameters.Add("@Available", SqlDbType.Bit).Value = parkingSpotModel.Available;
+            sqlCommand.Parameters.Add("@Active", SqlDbType.Bit).Value = parkingSpotModel.Active;
             sqlCommand.ExecuteNonQuery();
         }
 
@@ -64,7 +65,8 @@ namespace ParkingReservationSystem.DataAccess
                             Id = Convert.ToInt32(sqlDataReader["Id"].ToString()),
                             ParkingSpotNumber = sqlDataReader["ParkingSpotNumber"].ToString(),
                             ParkingSpotType = (ParkingSpotTypesEnum)Convert.ToInt32(sqlDataReader["ParkingSpotType"].ToString()),
-                            Available = Convert.ToBoolean(sqlDataReader["Available"].ToString())
+                            Available = Convert.ToBoolean(sqlDataReader["Available"].ToString()),
+                            Active = Convert.ToBoolean(sqlDataReader["Active"].ToString())
                         });
                     }
                 }
@@ -79,10 +81,10 @@ namespace ParkingReservationSystem.DataAccess
         //Delete Parking Spot
         public void DeleteParkingSpot(int instance, int id)
         {
-            SqlCommand sqlCommand = new SqlCommand("USP_DeleteParkingSpot", connection);
+            SqlCommand sqlCommand = new SqlCommand("USP_SaveParkingSpot", connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.Add("Instance", SqlDbType.Int).Value = instance;
-            sqlCommand.Parameters.Add("Id", SqlDbType.Int).Value = id;
+            sqlCommand.Parameters.Add("@Instance", SqlDbType.Int).Value = instance;
+            sqlCommand.Parameters.Add("@Id", SqlDbType.Int).Value = id;
             sqlCommand.ExecuteNonQuery();
         }
 
@@ -91,20 +93,23 @@ namespace ParkingReservationSystem.DataAccess
         {
             SqlCommand sqlCommand = new SqlCommand("USP_ReserveParkingSpot", connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.Add("Id", SqlDbType.Int).Value = parkingSpotHoldModel.Id;
             sqlCommand.Parameters.Add("Instance", SqlDbType.Int).Value = instance;
             sqlCommand.Parameters.Add("HeaderId", SqlDbType.Int).Value = parkingSpotHoldModel.HeaderId;
             sqlCommand.Parameters.Add("PstId", SqlDbType.VarChar).Value = parkingSpotHoldModel.PstId;
             sqlCommand.Parameters.Add("ParkedTime", SqlDbType.DateTime).Value = parkingSpotHoldModel.ParkedTime;
+            sqlCommand.Parameters.Add("ReleasedTime", SqlDbType.DateTime).Value = parkingSpotHoldModel.ReleasedTime;
+            sqlCommand.Parameters.Add("TotalAmount", SqlDbType.Decimal).Value = parkingSpotHoldModel.TotalAmount;
             sqlCommand.ExecuteNonQuery();
         }
 
         //Get Parking Spot Hold Details
-        public List<ParkingSpotHoldModel> GetParkingSpotHoldDetails(int instance, string psId)
+        public List<ParkingSpotHoldModel> GetParkingSpotHoldDetails(int instance, string pstId)
         {
             SqlCommand sqlCommand = new SqlCommand("USP_GetParkingSpotHoldDetails", connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.Add("Instance", SqlDbType.Int).Value = instance;
-            sqlCommand.Parameters.Add("PsId", SqlDbType.VarChar).Value = psId;
+            sqlCommand.Parameters.Add("PstId", SqlDbType.VarChar).Value = pstId;
             return GetParkingSpotHoldDetails(sqlCommand.ExecuteReader());
         }
 
@@ -121,7 +126,7 @@ namespace ParkingReservationSystem.DataAccess
                         list.Add(new ParkingSpotHoldModel
                         {
                             Id = Convert.ToInt32(sqlDataReader["Id"].ToString()),
-                            PstId = sqlDataReader["PsId"].ToString(),
+                            PstId = sqlDataReader["PstId"].ToString(),
                             HeaderId = Convert.ToInt32(sqlDataReader["HeaderId"].ToString()),
                             ParkedTime = Convert.ToDateTime(sqlDataReader["ParkedTime"].ToString() ?? null),
                             ReleasedTime = _convertionFunctions.DateTimeConvertion(sqlDataReader["ReleasedTime"].ToString()),

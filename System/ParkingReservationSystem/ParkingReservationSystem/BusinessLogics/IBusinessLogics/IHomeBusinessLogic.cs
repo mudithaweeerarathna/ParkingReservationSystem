@@ -12,6 +12,7 @@ namespace ParkingReservationSystem.BusinessLogics.IBusinessLogics
 
         void SaveParkingSpot(ParkingSpotModel parkingSpotModel);
         List<ParkingSpotModel> GetParkingSpots();
+        string GetLastParkingSpotNumber();
         ParkingSpotModel GetParkingSpot(int id);
         void DeleteParkingSpot(int id);
         ParkingSpotHoldModel ReserveParkingSpot(ParkingSpotTypesEnum parkingSpotType);

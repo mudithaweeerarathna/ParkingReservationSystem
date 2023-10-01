@@ -21,13 +21,43 @@ namespace ParkingReservationSystem.BusinessLogics
             return _commonDataAccess.GetLastId(instance);
         }
 
+        public string GetLastParkingSpotId(int id)
+        {
+            string lastId;
+            if (id < 10 && id > -1)
+            {
+                lastId = "PS-00" + id;
+            }
+            else if (id < 100 && id > 10)
+            {
+                lastId = "PS-0" + id;
+            }
+            else
+            {
+                lastId = "PS-" + id;
+            }
+            return lastId;
+        }
+
         public string GetLastParkingSpotHoldId()
         {
             try
             {
                 int Id = GetLastId(1);
                 Id = Id + 1;
-                string lastId = Id < 10 && Id > 0 ? ("PSTID-00" + Id) : ("PSTID-" + Id);
+                string lastId;
+                if (Id < 10 && Id > -1)
+                {
+                    lastId = "PSTID-00" + Id;
+                }
+                else if(Id < 100 && Id > 10)
+                {
+                    lastId = "PSTID-0" + Id;
+                }
+                else
+                {
+                    lastId = "PSTID-" + Id;
+                }
                 return lastId;
             }
             catch(Exception ex)

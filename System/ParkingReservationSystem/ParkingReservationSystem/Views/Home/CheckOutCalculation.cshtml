@@ -1,30 +1,17 @@
 ﻿@model ParkingSpotHoldModel
 
 @{
-    ViewData["Title"] = "ReserveParkingSpot";
-    ViewBag.PageTitle = "Parking spot is successfully reserved";
+    ViewData["Title"] = "CheckOutCalculation";
+    ViewBag.PageTitle = "Parking Spot was successfully released.";
 }
-
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-5">
+        <div class="col-6">
             <table class="table table-bordered">
                 <tr>
                     <td class="col-1 fw-bold" style="background-color: whitesmoke;">Parking Spot Id: </td>
                     <td class="col-1" style="background-color: whitesmoke;">@Model.PstId</td>
-                </tr>
-                <tr>
-                    <td class="col-1 fw-bold">Parking Date: </td>
-                    <td class="col-1">@Model.ParkedTime.ToShortDateString()</td>
-                </tr>
-                <tr>
-                    <td class="col-1 fw-bold">Parking Time: </td>
-                    <td class="col-1">@Model.ParkedTime.ToShortTimeString()</td>
-                </tr>
-                <tr>
-                    <td class="col-1 fw-bold">Parking Spot Type: </td>
-                    <td class="col-1">@Model.ParkingSpotType</td>
                 </tr>
                 <tr>
                     <td class="col-1 fw-bold">Charge for a hour: </td>
@@ -47,15 +34,35 @@
                     <td class="col-1 fw-bold">Parking Spot: </td>
                     <td class="col-1">@Model.ParkingSpotNumber</td>
                 </tr>
+                <tr>
+                    <td class="col-1 fw-bold">Parked Date: </td>
+                    <td class="col-1">@Model.ParkedTime.ToShortDateString()</td>
+                </tr>
+                <tr>
+                    <td class="col-1 fw-bold">Parked Time: </td>
+                    <td class="col-1">@Model.ParkedTime.ToShortTimeString()</td>
+                </tr>
+                <tr>
+                    <td class="col-1 fw-bold">Released Date: </td>
+                    <td class="col-1">@Model.ReleasedTime.Value.ToShortDateString()</td>
+                </tr>
+                <tr>
+                    <td class="col-1 fw-bold">Released Time: </td>
+                    <td class="col-1">@Model.ReleasedTime.Value.ToShortTimeString()</td>
+                </tr>
+                <tr>
+                    <td class="col-1 fw-bold">Parking Spot Type: </td>
+                    <td class="col-1">@Model.ParkingSpotType</td>
+                </tr>
+                <tr>
+                    <td class="col-1 fw-bold">Total Amount: </td>
+                    <td class="col-1">Rs @Model.TotalAmount.ToString("0.00")</td>
+                </tr>
             </table>
         </div>
         <div class="col-6">
-            <p>
-                <h5>Charges for parking types</h5>
-                Small parking space: 100.00 /=<br />
-                Medium parking space: 75.00 /= <br />
-                Large parking space: 50.00 /=
-            </p>
+            <button class="btn btn-outline-danger">Print the Receipt.</button>
         </div>
     </div>
 </div>
+
