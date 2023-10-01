@@ -22,9 +22,9 @@
             @foreach (var parkingSpot in Model)
             {
             <tr>
-                <td>@parkingSpot.ParkingSpotNumber</td>
+                <td style="@(parkingSpot.Available ? "border-left: 4px solid green;" : "border-left: 4px solid red;")  ">@parkingSpot.ParkingSpotNumber</td>
                 <td>@parkingSpot.ParkingSpotType</td>
-                <td class=@(parkingSpot.Available ? "bg-success" : "bg-danger")>@(parkingSpot.Available ? "Available" : "Vehicle Parked")</td>
+                <td>@(parkingSpot.Available ? "Available" : "Vehicle Parked")</td>
                 <td>
                     <a asp-controller="home" asp-action="EditParkingSpot" asp-route-id="@parkingSpot.Id"><i class="bi bi-pen" style="margin-right: 10px;" data-toggle="tooltip" data-placement="top" title="edit"></i></a>
                     <a asp-controller="home" asp-action="DeleteParkingSpot" asp-route-id="@parkingSpot.Id" method="post"><i class="bi bi-trash" style="margin-right: 10px;" data-toggle="tooltip" data-placement="top" title="delete"></i></a>
