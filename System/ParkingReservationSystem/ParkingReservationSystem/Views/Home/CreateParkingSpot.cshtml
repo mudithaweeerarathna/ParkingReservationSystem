@@ -10,9 +10,10 @@
     <div>
         <form asp-controller="home" asp-action="CreateParkingSpot" method="post">
             <input type="hidden" name="id" asp-for="Id" />
+            <label class="form-labelt" style="background-color: bisque; padding-left: 5px; padding-right: 5px;">Last Parking Spot Number: @ViewBag.spotNumber</label>
             <div class="mb-3">
                 <label for="ParkingSpotNumber" class="form-label" asp-for="ParkingSpotNumber">Parking Spot Number</label>
-                <input class="form-control" type="text" asp-for="ParkingSpotNumber" Id="ParkingSpotNumber" placeholder="PS-001" autocomplete="off" required />
+                <input class="form-control" type="text" asp-for="ParkingSpotNumber" Id="ParkingSpotNumber"  autocomplete="off" required />
             </div>
             <div class="mb-3">
                 <label for="ParkingSpotType" class="form-label">Select Parking Spot</label>
