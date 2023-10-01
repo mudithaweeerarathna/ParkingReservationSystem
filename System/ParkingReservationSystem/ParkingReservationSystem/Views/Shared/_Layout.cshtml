@@ -21,13 +21,49 @@
         .modal-backdrop {
             opacity: 0.5 !important;
         }
+
+        .page-title-header {
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background-color: lemonchiffon;
+            border-bottom: 3px solid whitesmoke;
+        }
+
     </style>
 </head>
-<body>
+<body style="padding-top: 0px;">
     <partial name="_CookieConsentPartial" />
+    <h2 class="page-title-header">Parking Management System</h2>
+    <div class="container" style="margin-left: 30px;">
 
-    <div class="container body-content">
-        @RenderBody()
+        <div class="row">
+            <!-- Start Sidebar -->
+            <div class="col-3" style="padding-top: 7px; padding-left: 0px;">
+                <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+                    <div class="position-sticky">
+                        <div class="list-group list-group-flush mx-3 mt-4">
+                            <a asp-controller="home" asp-action="CreateParkingSpot" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-globe fa-fw me-3"></i><span>Create New Parking Spot</span></a>
+                            <a asp-controller="home" asp-action="GetParkingReservation" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-globe fa-fw me-3"></i><span></span>Reserve / CheckOut Parking Spot</a>
+                            <a asp-controller="home" asp-action="checkOut" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-building fa-fw me-3"></i><span>Check Out</span></a>
+                            <a asp-controller="home" asp-action="ParkingSpotList" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-building fa-fw me-3"></i><span>Parking Spot List</span></a>
+                            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-calendar fa-fw me-3"></i><span>Daily Report One</span></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- End Sidebar -->
+            <!-- Start Body Content -->
+            <div class="col-9" style="padding-top: 7px;">
+                <!-- Start Page Title -->
+                <h4 class="p-2">@ViewBag.PageTitle</h4>
+                <hr />
+                <!-- End Page Title -->
+
+                @RenderBody()
+            </div>
+            <!-- End Body Content -->
+        </div>
     </div>
 
     <environment include="Development">

@@ -1,10 +1,8 @@
 ﻿@model List<ParkingSpotModel>
 @{
     ViewData["Title"] = "ParkingSpotList";
+    ViewBag.PageTitle = "Parking Spot List";
 }
-
-<h2 class="p-2">Parking Spot List</h2>
-<hr />
 
 <a asp-controller="home" asp-action="CreateParkingSpot">
     <button class="btn btn-outline-primary bi bi-plus-circle" style="margin-left: 12px; margin-bottom: 10px;"> Add new Parking Spot</button>

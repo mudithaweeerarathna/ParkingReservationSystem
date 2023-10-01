@@ -2,9 +2,9 @@
 
 @{
     ViewData["Title"] = "ParkingSpotRegistration";
+    ViewBag.PageTitle = "Registration Parking Spot";
 }
-<h2 class="p-2">Parking Spot Registration</h2>
-<hr />
+
 
 <div class="container-fluid">
     <div>
@@ -12,7 +12,7 @@
             <input type="hidden" name="id" asp-for="Id" />
             <div class="mb-3">
                 <label for="ParkingSpotNumber" class="form-label" asp-for="ParkingSpotNumber">Parking Spot Number</label>
-                <input class="form-control" type="text" asp-for="ParkingSpotNumber" Id="ParkingSpotNumber" />
+                <input class="form-control" type="text" asp-for="ParkingSpotNumber" Id="ParkingSpotNumber" placeholder="PS-001" />
             </div>
             <div class="mb-3">
                 <label for="ParkingSpotType" class="form-label">Select Parking Spot</label>
