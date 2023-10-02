@@ -88,6 +88,10 @@ namespace ParkingReservationSystem.DataAccess
             sqlCommand.ExecuteNonQuery();
         }
 
+        #endregion
+
+        #region Parking Spot Hold
+
         //Reserve Parking Spot
         public void ReserveParkingSpot(int instance, ParkingSpotHoldModel parkingSpotHoldModel)
         {
@@ -135,6 +139,49 @@ namespace ParkingReservationSystem.DataAccess
                     }
                 }
                 return list;
+            }
+            finally
+            {
+                sqlDataReader.Close();
+            }
+        }
+
+        #endregion
+
+        #region Other Pages
+
+        public HomePageModel GetHomePageDetails(int instance)
+        {
+            SqlCommand sqlCommand = new SqlCommand("USP_GetAllParkingSpotTypeCount", connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.Add("Instance", SqlDbType.Int).Value = instance;
+            return GetHomePageDetails(sqlCommand.ExecuteReader());
+        }
+
+        public HomePageModel GetHomePageDetails(SqlDataReader sqlDataReader)
+        {
+            try
+            {
+                HomePageModel homePageModel = null;
+                if (sqlDataReader.HasRows)
+                {
+                    while(sqlDataReader.Read())
+                    {
+                        homePageModel = new HomePageModel()
+                        {
+                            TotalParkingSpots = _convertionFunctions.StringToIntConvert(sqlDataReader["TotalParkingSpots"].ToString()),
+                            AvailablePS = _convertionFunctions.StringToIntConvert(sqlDataReader["AvailablePS"].ToString()),
+                            OccupiedPS = _convertionFunctions.StringToIntConvert(sqlDataReader["OccupiedPS"].ToString()),
+                            AvailableLargeTypePS = _convertionFunctions.StringToIntConvert(sqlDataReader["AvailableLargeTypePS"].ToString()),
+                            OccupiedLargeTypePS = _convertionFunctions.StringToIntConvert(sqlDataReader["OccupiedLargeTypePS"].ToString()),
+                            AvailableMediumTypePS = _convertionFunctions.StringToIntConvert(sqlDataReader["AvailableMediumTypePS"].ToString()),
+                            OccupiedMediumTypePS = _convertionFunctions.StringToIntConvert(sqlDataReader["OccupiedMediumTypePS"].ToString()),
+                            AvailableSmallTypePS = _convertionFunctions.StringToIntConvert(sqlDataReader["AvailableSmallTypePS"].ToString()),
+                            OccupiedSmallTypePS = _convertionFunctions.StringToIntConvert(sqlDataReader["OccupiedSmallTypePS"].ToString()),
+                        };
+                    }
+                }
+                return homePageModel;
             }
             finally
             {

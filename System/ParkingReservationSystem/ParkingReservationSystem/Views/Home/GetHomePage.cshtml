@@ -1,0 +1,64 @@
+﻿@model  HomePageModel
+
+@{
+    ViewData["Title"] = "HomePage";
+}
+
+<div class="container" style="background-color: ;">
+    <div class="row" style="padding-top: 20px;">
+        <div class="col-6">
+            <table class="table table-bordered">
+                <tr><th class="bg-secondary-subtle" colspan="2"><h4 style="padding-bottom: 3px;">Large Parking Spots</h4></th></tr>
+                <tr>
+                    <th><h6>Total Available: </h6></th>
+                    <th style="text-align: right;"><h6>@Model.AvailableLargeTypePS</h6></th>
+                </tr>
+                <tr>
+                    <th><h6>Total Occupied:</h6></th>
+                    <th style="text-align: right;"><h6> @Model.OccupiedLargeTypePS</h6></th>
+                </tr>
+            </table>
+
+            <table class="table table-bordered">
+                <tr><th class="bg-secondary-subtle" colspan="2"><h4 style="padding-bottom: 3px;">Medium Parking Spots</h4></th></tr>
+                <tr>
+                    <th><h6>Total Available: </h6></th>
+                    <th style="text-align: right;"><h6>@Model.AvailableMediumTypePS</h6></th>
+                </tr>
+                <tr>
+                    <th><h6>Total Occupied:</h6></th>
+                    <th style="text-align: right;"><h6> @Model.OccupiedMediumTypePS</h6></th>
+                </tr>
+            </table>
+
+            <table class="table table-bordered">
+                <tr><th class="bg-secondary-subtle" colspan="2"><h4 style="padding-bottom: 3px;">Small Parking Spots</h4></th></tr>
+                <tr>
+                    <th><h6>Total Available: </h6></th>
+                    <th style="text-align: right;"><h6>@Model.AvailableSmallTypePS</h6></th>
+                </tr>
+                <tr>
+                    <th><h6>Total Occupied:</h6></th>
+                    <th style="text-align: right;"><h6> @Model.OccupiedSmallTypePS</h6></th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-6">
+            <table class="table table-bordered">
+                <tr>
+                    <td style="width: 340px;"><h5>Total Parking Spaces Available: </h5></td>
+                    <td style="text-align: right; width: 100px;"><h5>@Model.TotalParkingSpots</h5></td>
+                </tr>
+                <tr>
+                    <td style="width: 340px;"><h5>total Available Parking Spaces: </h5></td>
+                    <td style="text-align: right;"><h5>@Model.AvailablePS</h5></td>
+                </tr>
+                <tr>
+                    <td style="width: 340px;"><h5>Total Occupied Parking Spaces: </h5></td>
+                    <td style="text-align: right;"><h5>@Model.OccupiedPS</h5></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -67,7 +67,7 @@ namespace ParkingReservationSystem.Controllers
             return View();
         }
 
-        public ViewResult ReserveParkingSpot(ParkingSpotTypesEnum type) //add the correct functions in the controller
+        public ViewResult ReserveParkingSpot(ParkingSpotTypesEnum type) 
         {
             var parkingSpotHold = new ParkingSpotHoldModel();
             parkingSpotHold = _homeBusinessLogic.ReserveParkingSpot(type);
@@ -84,6 +84,17 @@ namespace ParkingReservationSystem.Controllers
             var ParkingSpotHoldModel = new ParkingSpotHoldModel();
             ParkingSpotHoldModel = _homeBusinessLogic.CheckOutCalculation(parkingSpotModel);
             return View(ParkingSpotHoldModel);
+        }
+
+        #endregion
+
+        #region Other Pages
+
+        [HttpGet]
+        public ViewResult GetHomePage()
+        {
+            var homePageDetails = _homeBusinessLogic.GetHomePageDetails();
+            return View(homePageDetails);
         }
 
         #endregion

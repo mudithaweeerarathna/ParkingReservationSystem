@@ -19,5 +19,11 @@ namespace ParkingReservationSystem.BusinessLogics.IBusinessLogics
         ParkingSpotHoldModel CheckOutCalculation(ParkingSpotHoldModel parkingSpotModel);
 
         #endregion
+
+        #region Other Pages
+
+        HomePageModel GetHomePageDetails();
+
+        #endregion
     }
 }
