@@ -58,7 +58,7 @@ namespace ParkingReservationSystem
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Reservation}/{id?}");
+                    template: "{controller=Home}/{action=GetHomePage}/{id?}");
             });
         }
     }

@@ -21,6 +21,8 @@ namespace ParkingReservationSystem.BusinessLogics
             return _commonDataAccess.GetLastId(instance);
         }
 
+        #region Getting Last Ids
+
         public string GetLastParkingSpotId(int id)
         {
             string lastId;
@@ -66,6 +68,10 @@ namespace ParkingReservationSystem.BusinessLogics
             }
         }
 
+        #endregion
+
+        #region Common Calculations
+
         public double CalculateNoOfHours(DateTime parkedTime)
         {
             DateTime currentTime = DateTime.Now;
@@ -93,5 +99,7 @@ namespace ParkingReservationSystem.BusinessLogics
 
             return totalParkingFee;
         }
+
+        #endregion
     }
 }

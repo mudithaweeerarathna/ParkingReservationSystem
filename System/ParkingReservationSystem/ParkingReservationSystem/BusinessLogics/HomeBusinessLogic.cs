@@ -19,7 +19,7 @@ namespace ParkingReservationSystem.BusinessLogics
             _commonBusinessLogic = new CommonBusinessLogic();
         }
 
-        #region Save Get Parking Spot Details and Calculations
+        #region Parking Spot
 
         public void SaveParkingSpot(ParkingSpotModel parkingSpotModel)
         {
@@ -81,6 +81,10 @@ namespace ParkingReservationSystem.BusinessLogics
             _homeDataAccess.DeleteParkingSpot(4, id);
         }
 
+        #endregion
+
+        #region Parking Spot Hold
+
         public ParkingSpotHoldModel ReserveParkingSpot(ParkingSpotTypesEnum parkingSpotType)
         {
             try
@@ -133,6 +137,15 @@ namespace ParkingReservationSystem.BusinessLogics
             {
                 throw;
             }
+        }
+
+        #endregion
+
+        #region Other Pages
+
+        public HomePageModel GetHomePageDetails()
+        {
+            return _homeDataAccess.GetHomePageDetails(1);
         }
 
         #endregion
