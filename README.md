@@ -64,7 +64,7 @@
   parking space (green = parking space is available, red = parking space is occupied).
 </p>
 
-<h5>Feel free to fork the repository and update the system.</h5>
+<b>Feel free to fork the repository and update the system.</b>
 <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">How to fork a repository.</a>
 
 
