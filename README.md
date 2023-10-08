@@ -64,9 +64,9 @@
   parking space (green = parking space is available, red = parking space is occupied).
 </p>
 
-<b>Feel free to fork the repository and update the system.</b>
-<a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">How to fork a repository.</a>
-<a href="https://github.com/mudithaweeerarathna/ParkingReservationSystem/tree/Devolopment/Database"><b>Import the data-tier application supplied in the database folder in repository</b></a>
+<b>Feel free to fork the repository and update the system.</b> 
+<a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">How to fork a repository.</a> </br>
+<a style="color: black;" href="https://github.com/mudithaweeerarathna/ParkingReservationSystem/tree/Devolopment/Database"><b>Import the data-tier application supplied in the database folder in repository</b></a>
 <a href="https://learn.microsoft.com/en-us/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database?view=sql-server-ver16">How to import a Data-Tier application</a>
 
 
