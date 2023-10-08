@@ -13,15 +13,15 @@ namespace ParkingReservationSystem.DataAccess
         //String connectionString;
         IConfiguration configuration;
         
-        public SqlConnection CreateConnection()
-        {
+        //public SqlConnection CreateConnection()
+        //{
 
-            configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            var connectionString = configuration.GetValue<String>("ConnectionStrings:ParkingDatabase");
+        //    //configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+        //    //var connectionString = configuration.GetValue<String>("ConnectionStrings:ParkingDatabase");
 
-            SqlConnection sqlConnection;
-            sqlConnection = new SqlConnection(connectionString);
-            return sqlConnection; //configuration.GetConnectionString("ParkingDatabase").ToString();
-        }
+        //    //SqlConnection sqlConnection;
+        //    //sqlConnection = new SqlConnection(connectionString);
+        //    //return sqlConnection; //configuration.GetConnectionString("ParkingDatabase").ToString();
+        //}
     }
 }
