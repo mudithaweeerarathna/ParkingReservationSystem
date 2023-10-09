@@ -24,6 +24,8 @@
 
 <!--Home Page Image And Details-->
 <h4>HOME PAGE</h4>
+
+![HomePage](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/70daacd4-2fc7-4544-be76-86ec77c66258)
 <p>
   The Parking Management System homepage contains the basic details of the parking lot. <br>
   This page gives the count of all the total available and occupied parking spaces within the parking lot and gives 
@@ -32,7 +34,8 @@
 
 <!--Create New Parking Space Page Image And Details-->
 <h4>Create New Paking Space</h4>
-![Untitled design (2)](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/7904cb6e-b2a1-4a34-8421-dc51fa8d5e6e)
+
+![RegisterParkingSpot](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/17e839cd-6d42-470d-9e7a-4aca3035d302)
 <p>
   We can enter the parking spot details into the system by using this page. <br> 
   The user can enter the parking spot number into the 
@@ -41,13 +44,14 @@
 
 <!--Reserve Parking Spot Page Details-->
 <h4>Reserve Parking Spot</h4>
-![Untitled design (3)](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/6f6a2682-149d-4f3a-a3db-9e693e58f445)
+
+![ReserveParkingSpot](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/53783b94-6471-40ab-88b3-5d59b590647b)
 <p>
   Users can reserve and release a parking spot by using this page. <br>
 </p>
-
 <!--Check Out Page Details-->
 <h4>Check Out</h4>
+
 ![Untitled design (4)](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/3f262861-ab7e-4b3c-b56e-9e5be7214ec4)
 <p>
   The user can release the occupied parking spot from the system by using this system.
@@ -55,7 +59,8 @@
 
 <!--Parking Spot Lists Page Details-->
 <h4>Parking Spot List</h4>
-![Untitled design (5)](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/d7dc8211-7394-40a1-8eae-5dc01c6bcf93)
+
+![ParkingList](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/958cdfe3-08a9-4333-a1bd-06aec7a22d65)
 <p>
   This page contains the full list of parking spaces in the parking lot and gives the details of the parking space, like the 
   type of parking space and the availability of the parking space. We can edit and delete any parking space using the edit and 
