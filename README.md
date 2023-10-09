@@ -24,7 +24,6 @@
 
 <!--Home Page Image And Details-->
 <h4>HOME PAGE</h4>
-<img src="https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/2ad45dc9-03eb-4134-81a0-61105cc4ef84">
 <p>
   The Parking Management System homepage contains the basic details of the parking lot. <br>
   This page gives the count of all the total available and occupied parking spaces within the parking lot and gives 
@@ -33,7 +32,7 @@
 
 <!--Create New Parking Space Page Image And Details-->
 <h4>Create New Paking Space</h4>
-<img src="https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/78608e32-9cfc-4cbc-9de6-e3b8cb6759f1"> 
+![Untitled design (2)](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/7904cb6e-b2a1-4a34-8421-dc51fa8d5e6e)
 <p>
   We can enter the parking spot details into the system by using this page. <br> 
   The user can enter the parking spot number into the 
@@ -42,21 +41,21 @@
 
 <!--Reserve Parking Spot Page Details-->
 <h4>Reserve Parking Spot</h4>
-<img src="https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/5b164f14-8116-470a-afd5-9c8a03a479ae">
+![Untitled design (3)](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/6f6a2682-149d-4f3a-a3db-9e693e58f445)
 <p>
   Users can reserve and release a parking spot by using this page. <br>
 </p>
 
 <!--Check Out Page Details-->
 <h4>Check Out</h4>
-<img src="https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/99d9ca62-1961-4aa0-89f9-cb96eae32735">
+![Untitled design (4)](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/3f262861-ab7e-4b3c-b56e-9e5be7214ec4)
 <p>
   The user can release the occupied parking spot from the system by using this system.
 </p>
 
 <!--Parking Spot Lists Page Details-->
 <h4>Parking Spot List</h4>
-<img src="https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/5197c567-b44c-4408-bc78-0e21499e726c">
+![Untitled design (5)](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/d7dc8211-7394-40a1-8eae-5dc01c6bcf93)
 <p>
   This page contains the full list of parking spaces in the parking lot and gives the details of the parking space, like the 
   type of parking space and the availability of the parking space. We can edit and delete any parking space using the edit and 
