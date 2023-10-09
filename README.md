@@ -1,5 +1,5 @@
 # ParkingReservationSystem
-<img src="https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/3e4dc02e-0faf-4885-9761-fd44fb75bdbb" style="align: center;">
+![Autumn Newsletter](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/6025ac76-1e01-47c1-97ff-6542d6190f53)
 <p>
   <b>Parking sync is a parking management system that we can use in parking lots to manage the parking spaces within the parking lot.</b>
 </p>
