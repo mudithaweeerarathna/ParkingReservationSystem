@@ -22,6 +22,17 @@
 
 <h2>Screenshots of pages in website</h2>
 
+<!--Login Image And Details-->
+<h4>Login Page</h4>
+
+![Log in](https://github.com/mudithaweeerarathna/ParkingReservationSystem/assets/80881694/833d9be1-2809-4465-9a0b-6fddf5d32e07)
+
+
+
+<p>
+  The login page is used to log the user into the system in order to use the system.
+</p>
+
 <!--Home Page Image And Details-->
 <h4>HOME PAGE</h4>
 
