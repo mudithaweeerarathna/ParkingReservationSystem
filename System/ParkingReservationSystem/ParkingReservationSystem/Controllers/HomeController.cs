@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using ParkingReservationSystem.BusinessLogics;
 using ParkingReservationSystem.BusinessLogics.IBusinessLogics;
 using ParkingReservationSystem.Models;
+using ParkingReservationSystem.Models.ViewModels;
 
 namespace ParkingReservationSystem.Controllers
 {
@@ -91,10 +92,36 @@ namespace ParkingReservationSystem.Controllers
         #region Other Pages
 
         [HttpGet]
-        public ViewResult GetHomePage()
+        public IActionResult GetHomePage()
         {
             var homePageDetails = _homeBusinessLogic.GetHomePageDetails();
             return View(homePageDetails);
+        }
+
+        [HttpGet]
+        public ViewResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(UserViewModel userViewModel)
+        {
+            if(ModelState.IsValid)
+            {
+                var userDetails = _homeBusinessLogic.LogInUserAuthentication(userViewModel);
+
+                if(userDetails.UserAuthorized == true)
+                {
+                    return RedirectToAction("HomePage");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Login Credentials Does Not Match");
+                }
+            }
+
+            return View(userViewModel);
         }
 
         #endregion

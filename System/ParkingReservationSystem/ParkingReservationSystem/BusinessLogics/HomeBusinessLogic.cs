@@ -1,6 +1,7 @@
 ﻿using ParkingReservationSystem.BusinessLogics.IBusinessLogics;
 using ParkingReservationSystem.DataAccess;
 using ParkingReservationSystem.Models;
+using ParkingReservationSystem.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -146,6 +147,29 @@ namespace ParkingReservationSystem.BusinessLogics
         public HomePageModel GetHomePageDetails()
         {
             return _homeDataAccess.GetHomePageDetails(1);
+        }
+
+        public User LogInUserAuthentication(UserViewModel userViewModel)
+        {
+            User user = new User();
+            user.UserName = userViewModel.UserName;
+
+            var userDetails = _homeDataAccess.GetUserDetails(1, user);
+            if (userDetails == null)
+            {
+                user.UserAuthorized = false;
+                return user;
+            }
+            if (user.Password == userDetails.Password)
+            {
+                user.UserAuthorized = true;
+            }
+            else
+            {
+                user.UserAuthorized = false;
+            }
+
+            return user;
         }
 
         #endregion

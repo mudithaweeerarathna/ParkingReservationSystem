@@ -213,6 +213,43 @@ namespace ParkingReservationSystem.DataAccess
             }
         }
 
+        public User GetUserDetails(int instance, User user)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("USP_GetUserDetails", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.Add("Instance", SqlDbType.Int).Value = instance;
+                sqlCommand.Parameters.Add("UserName", SqlDbType.VarChar).Value = user.UserName;
+                return GetUserDetails(sqlCommand.ExecuteReader());
+            }
+        }
+
+        public User GetUserDetails(SqlDataReader sqlDataReader)
+        {
+            try
+            {
+                User user = null;
+                if(sqlDataReader.HasRows)
+                {
+                    user = new User();
+                    while(sqlDataReader.Read())
+                    {
+                        return new User
+                        {
+                            UserName = sqlDataReader["UserName"].ToString(),
+                            Password = sqlDataReader["Password"].ToString()
+                        };
+                    }                   
+                }
+                return user;
+            }
+            finally
+            {
+                sqlDataReader.Close();
+            }
+        }
         #endregion
     }
 }
