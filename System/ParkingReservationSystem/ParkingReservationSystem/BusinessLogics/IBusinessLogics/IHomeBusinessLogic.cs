@@ -1,4 +1,5 @@
 ﻿using ParkingReservationSystem.Models;
+using ParkingReservationSystem.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace ParkingReservationSystem.BusinessLogics.IBusinessLogics
         #region Other Pages
 
         HomePageModel GetHomePageDetails();
+        User LogInUserAuthentication(UserViewModel userViewModel);
 
         #endregion
     }
